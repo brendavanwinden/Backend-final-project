@@ -1,2 +1,11 @@
 node_modules
 .vscode
+.env
+/src/generated/prisma
+
+# database (recreated by npm run reset-db)
+prisma/dev.db
+prisma/dev.db-journal
+
+# local test output
+test-output.txt

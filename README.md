@@ -41,3 +41,5 @@ Run `npm run reset-db` before every test run, because the tests change data.
 - Passwords are never returned by the API.
 - Deleting a user, host or property also deletes the related records (cascade).
 - Because the SQLite setup uses `relationMode = "prisma"`, the API itself checks that referenced users, hosts and properties exist.
+- Passwords are stored and compared as plain text, as in the provided seed data. In a production app they would be hashed (for example with bcrypt).
+- The route files are intentionally similar to keep each resource easy to read; a shared helper could reduce the duplication.

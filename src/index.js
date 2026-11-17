@@ -23,7 +23,6 @@ app.use(logger);
 
 app.get("/", (req, res) => res.send("Hello world!"));
 
-// routes will go here
 app.use("/login", loginRouter);
 app.use("/users", usersRouter);
 app.use("/hosts", hostsRouter);

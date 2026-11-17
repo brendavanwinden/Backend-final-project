@@ -8,7 +8,8 @@ export const getHosts = ({ name } = {}) => {
   return prisma.host.findMany({ where, omit });
 };
 
-export const getHostById = (id) => prisma.host.findUnique({ where: { id }, omit });
+export const getHostById = (id) =>
+  prisma.host.findUnique({ where: { id }, include: { listings: true }, omit });
 
 export const createHost = (data) => prisma.host.create({ data, omit });
 

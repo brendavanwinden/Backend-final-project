@@ -7,6 +7,10 @@ import loginRouter from "./routes/login.js";
 import usersRouter from "./routes/users.js";
 import hostsRouter from "./routes/hosts.js";
 import propertiesRouter from "./routes/properties.js";
+import bookingsRouter from "./routes/bookings.js";
+import reviewsRouter from "./routes/reviews.js";
+
+
 
 
 const app = express();
@@ -19,15 +23,12 @@ app.use(logger);
 
 app.get("/", (req, res) => res.send("Hello world!"));
 
-// TEMPORARY: to test Sentry, remove later
-app.get("/debug-error", () => {
-  throw new Error("Sentry test error");
-});
-
 // routes will go here
 app.use("/login", loginRouter);
 app.use("/users", usersRouter);
 app.use("/hosts", hostsRouter);
+app.use("/bookings", bookingsRouter);
+app.use("/reviews", reviewsRouter);
 app.use("/properties", propertiesRouter);
 app.use(Sentry.Handlers.errorHandler());
 app.use(errorHandler);

@@ -7,7 +7,8 @@ export const getProperties = ({ location, pricePerNight } = {}) => {
   return prisma.property.findMany({ where });
 };
 
-export const getPropertyById = (id) => prisma.property.findUnique({ where: { id } });
+export const getPropertyById = (id) =>
+  prisma.property.findUnique({ where: { id }, include: { reviews: true } });
 
 export const createProperty = (data) => prisma.property.create({ data });
 
